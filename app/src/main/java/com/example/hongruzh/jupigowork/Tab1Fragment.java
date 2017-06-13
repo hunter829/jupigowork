@@ -1,10 +1,13 @@
 package com.example.hongruzh.jupigowork;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +30,7 @@ public class Tab1Fragment extends Fragment {
     private Button button2;
 
     DataBaseHelper myDb;
+    public Context mContext;
 
 
     @Nullable
@@ -67,6 +71,33 @@ public class Tab1Fragment extends Fragment {
         button2.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
+//                Fragment tab_fragment2 = new Tab2Fragment();
+//                Bundle bundle = new Bundle();
+//                FragmentTransaction transection = getFragmentManager().beginTransaction();
+//                bundle.putString("Name", editName.getText().toString());
+//                bundle.putString("Code",editCode.getText().toString());
+//                bundle.putString("Color","green");
+//                tab_fragment2.setArguments(bundle);
+//
+//                transection.replace(R.id.tab1_frag, tab_fragment2);
+//                transection.isAddToBackStackAllowed();
+//                transection.addToBackStack(null);
+//                transection.commit();
+
+//                Intent intent = new Intent();
+//                intent.putExtra("Name",editName.getText().toString());
+//                intent.putExtra("Code",editCode.getText().toString());
+//                intent.putExtra("Color","green");
+//                //send the data from Tab1 to Tab2
+//                intent.setClass(mContext,Tab2Fragment.class);
+//                startActivity(intent);
+
+//                                Fragment fragment = new Tab2Fragment();
+//                FragmentManager fm = getActivity().getSupportFragmentManager();
+//                FragmentTransaction ft = fm.beginTransaction();
+//                ft.replace(R.id.content_frame, fragment);
+//                ft.commit();
+
                 boolean isInserted = myDb.insertData(editName.getText().toString(),editCode.getText().toString(),null);
 
                 if(isInserted==true){

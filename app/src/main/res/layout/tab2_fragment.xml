@@ -1,52 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:andorid="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.example.hongruzh.jupigowork.extra.SlidingTabLayout
+        android:id="@+id/f1slidingTabLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textSize="25sp"
-        android:text="Tab2"
-        android:layout_marginTop="40dp"
-        android:id="@+id/textTab2"/>
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:scrollX="@dimen/activity_horizontal_margin"
+        >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnTEST2"
-        android:text="TESTBTN 2"/>
+    </com.example.hongruzh.jupigowork.extra.SlidingTabLayout>
 
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Name:michael"
-    android:id="@+id/nameView"
-    android:layout_marginTop="50dp"
-    android:layout_below="@+id/textTab2"
-    android:layout_centerHorizontal="true" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Code:0987"
-        android:id="@+id/CodeView"
-        android:layout_marginTop="150dp"
-        android:layout_below="@+id/textTab2"
-        android:layout_centerHorizontal="true" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Color:red"
-        android:id="@+id/colorView"
-        android:layout_marginTop="250dp"
-        android:layout_below="@+id/textTab2"
-        android:layout_centerHorizontal="true" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/f1viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1" />
 
 
 </RelativeLayout>

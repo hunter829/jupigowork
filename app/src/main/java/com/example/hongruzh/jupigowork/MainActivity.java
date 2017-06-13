@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
     private SectionsPageAdapter mSectionsPageAdapter;
 
+    private Tab2Fragment fragment2;
+
     private ViewPager mViewPager;
     DataBaseHelper myDb;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Starting.");
 
 
+        fragment2 = new Tab2Fragment();
+
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
@@ -61,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 //        ActionBar actionBar = getActionBar();
 //        actionBar.hide();
+
+
     }
 
     private void setupViewPager(ViewPager viewPager) {

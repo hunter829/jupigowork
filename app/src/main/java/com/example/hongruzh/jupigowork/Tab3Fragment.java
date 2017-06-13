@@ -2,6 +2,7 @@ package com.example.hongruzh.jupigowork;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.support.v4.app.Fragment;
 
@@ -30,23 +31,13 @@ public class Tab3Fragment extends Fragment {
     private static final String TAG = "Tab3Fragment";
 
     private Button btnTEST;
-
-    public String[] groupStrings = {"Xiyouji", "shuihuzhuan", "sanguoyanyi", "honglou"};
-    public String[][] childStrings = {
-            {"唐三藏", "孙悟空", "猪八戒", "沙和尚"},
-            {"宋江", "林冲", "李逵", "鲁智深"},
-            {"曹操", "刘备", "孙权", "诸葛亮", "周瑜"},
-            {"贾宝玉", "林黛玉", "薛宝钗", "王熙凤"}
-    };
-
+    DataBaseHelper myDb;
     private ArrayList<Group> gData = null;
     private ArrayList<ArrayList<Item>> iData = null;
     private ArrayList<Item> lData = null;
     private Context mContext;
     private ExpandableListView exlist_lol;
     private MyBaseExpandableListAdapter myAdapter = null;
-
-
 
 
     @Nullable
@@ -62,42 +53,40 @@ public class Tab3Fragment extends Fragment {
                 Toast.makeText(getActivity(), "TESTING BUTTON CLICK 3", Toast.LENGTH_SHORT).show();
             }
         });
+        myDb = new DataBaseHelper(getContext());
 
+        //get all the data from the database;
+        Cursor res = myDb.getAllData();
+
+        if(res.getCount()==0){
+           return view;
+        }
+
+        //DataWrapper is the wrapper data class including the id,name,color and code
+        List<DataWrapper> list = new ArrayList<DataWrapper>();
+
+        while(res.moveToNext()){
+            list.add(new DataWrapper(res.getString(0),res.getString(1),res.getString(2),res.getString(3)));
+//            .append("Id :" + res.getString(0) + "\n");
+//            buffer.append("Name :"+ res.getString(1)+"\n");
+//            buffer.append("Color :"+ res.getString(2)+"\n");
+//            buffer.append("Code :"+ res.getString(3)+"\n\n");
+        }
         mContext = getContext();
         exlist_lol = (ExpandableListView) view.findViewById(R.id.expandableListView);
-
 
         //数据准备
         gData = new ArrayList<Group>();
         iData = new ArrayList<ArrayList<Item>>();
-        gData.add(new Group("AD"));
-        gData.add(new Group("AP"));
-        gData.add(new Group("TANK"));
 
-        lData = new ArrayList<Item>();
 
-        //AD组
-        lData.add(new Item(R.mipmap.iv_lol_icon3,"剑圣"));
-        lData.add(new Item(R.mipmap.iv_lol_icon4,"德莱文"));
-        lData.add(new Item(R.mipmap.iv_lol_icon13,"男枪"));
-        lData.add(new Item(R.mipmap.iv_lol_icon14,"韦鲁斯"));
-        iData.add(lData);
-        //AP组
-        lData = new ArrayList<Item>();
-        lData.add(new Item(R.mipmap.iv_lol_icon1, "提莫"));
-        lData.add(new Item(R.mipmap.iv_lol_icon7, "安妮"));
-        lData.add(new Item(R.mipmap.iv_lol_icon8, "天使"));
-        lData.add(new Item(R.mipmap.iv_lol_icon9, "泽拉斯"));
-        lData.add(new Item(R.mipmap.iv_lol_icon11, "狐狸"));
-        iData.add(lData);
-        //TANK组
-        lData = new ArrayList<Item>();
-        lData.add(new Item(R.mipmap.iv_lol_icon2, "诺手"));
-        lData.add(new Item(R.mipmap.iv_lol_icon5, "德邦"));
-        lData.add(new Item(R.mipmap.iv_lol_icon6, "奥拉夫"));
-        lData.add(new Item(R.mipmap.iv_lol_icon10, "龙女"));
-        lData.add(new Item(R.mipmap.iv_lol_icon12, "狗熊"));
-        iData.add(lData);
+        for(DataWrapper daWr:list){
+            gData.add(new Group(daWr.NAME));
+            lData = new ArrayList<Item>();
+            lData.add(new Item(daWr.COLOR));
+            lData.add(new Item(daWr.CODE));
+            iData.add(lData);
+        }
 
         myAdapter = new MyBaseExpandableListAdapter(gData,iData,mContext);
         exlist_lol.setAdapter(myAdapter);
@@ -111,11 +100,6 @@ public class Tab3Fragment extends Fragment {
                 return true;
             }
         });
-
-
-
-
-
 
 
         return view;
