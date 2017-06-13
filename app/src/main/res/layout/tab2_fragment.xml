@@ -19,4 +19,34 @@
         android:id="@+id/btnTEST2"
         android:text="TESTBTN 2"/>
 
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Name:michael"
+    android:id="@+id/nameView"
+    android:layout_marginTop="50dp"
+    android:layout_below="@+id/textTab2"
+    android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Code:0987"
+        android:id="@+id/CodeView"
+        android:layout_marginTop="150dp"
+        android:layout_below="@+id/textTab2"
+        android:layout_centerHorizontal="true" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Color:red"
+        android:id="@+id/colorView"
+        android:layout_marginTop="250dp"
+        android:layout_below="@+id/textTab2"
+        android:layout_centerHorizontal="true" />
+
+
 </RelativeLayout>

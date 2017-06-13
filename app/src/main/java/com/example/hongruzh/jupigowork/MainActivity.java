@@ -39,10 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private SectionsPageAdapter mSectionsPageAdapter;
 
     private ViewPager mViewPager;
+    DataBaseHelper myDb;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myDb = new DataBaseHelper(this);
 
         Log.d(TAG, "onCreate: Starting.");
 
@@ -67,10 +70,6 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new Tab3Fragment(), "TAB3");
         viewPager.setAdapter(adapter);
     }
-
-
-
-
 
 
 }
