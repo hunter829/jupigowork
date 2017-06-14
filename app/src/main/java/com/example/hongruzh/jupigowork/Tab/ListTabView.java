@@ -1,6 +1,7 @@
 package com.example.hongruzh.jupigowork.Tab;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -25,9 +26,14 @@ public class ListTabView extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.single_view, container, false);
+        View view = inflater.inflate(R.layout.list_view, container, false);
         lv = (ListView) view.findViewById(R.id.listView);;
-        lv.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, strs));
+        try {
+            lv.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, strs));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         return view;
     }
 }

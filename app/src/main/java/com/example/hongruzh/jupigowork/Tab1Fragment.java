@@ -70,11 +70,13 @@ public class Tab1Fragment extends Fragment {
 
 
 
+
         return view;
     }
 
     public void addData(){
         //button2 is submit button
+
         button2.setOnClickListener(new View.OnClickListener(){
 
             public void onClick(View v){
@@ -110,10 +112,26 @@ public class Tab1Fragment extends Fragment {
                 boolean isInserted = myDb.insertData(editName.getText().toString(),editCode.getText().toString(),null);
                 FragmentManager fm = getFragmentManager();
                 //listTabView is a fragment
-                ListTabView listTabView = new ListTabView();
+                Fragment listTabView = new ListTabView();
 
                 FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                fm.beginTransaction().replace(R.id.tab1_frag,listTabView);
+                System.out.println(fm.getFragments().size()+"get the size");
+//                if (fm.getFragments() != null && fm.getFragments().size() > 0) {
+//                    for (Fragment cf : fm.getFragments()) {
+//                        fragmentTransaction.re567890move(cf);
+//                    }
+//                }456789
+//                try{
+//                    fragmentTransaction.hide(fm.findFragmentById(R.id.tab1_frag));
+//                }
+//                catch(Exception e){
+//                    e.printStackTrace();3456789
+//                }
+
+                fragmentTransaction.add(R.id.main_content, listTabView);
+
+
+
 
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
@@ -128,7 +146,6 @@ public class Tab1Fragment extends Fragment {
 
             }
         });
-
     }
 
 

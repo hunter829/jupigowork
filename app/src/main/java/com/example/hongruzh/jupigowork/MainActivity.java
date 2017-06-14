@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
     DataBaseHelper myDb;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -63,9 +62,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
+        ListTabView listTabView = new ListTabView();
+//        rtyui
         setupViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+//        mViewPager.addView(listTabView.getView());
 
 //                FragmentManager fm = getSupportFragmentManager();
 //                //listTabView is a fragment
@@ -74,10 +76,7 @@ public class MainActivity extends AppCompatActivity {
 //                fm.beginTransaction().replace(R.id.tab1_frag,listTabView);
 //
 //                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-
-
-
+//                fragmentTransaction.commit()
 
     }
     private void setupViewPager(ViewPager viewPager) {
