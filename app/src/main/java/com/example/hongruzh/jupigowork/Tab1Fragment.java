@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -16,6 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.hongruzh.jupigowork.Tab.ListTabView;
 
 /**
  * Created by hongruzh on 6/10/17.
@@ -31,6 +34,8 @@ public class Tab1Fragment extends Fragment {
 
     DataBaseHelper myDb;
     public Context mContext;
+
+    public FragmentManager fm;
 
 
     @Nullable
@@ -53,6 +58,8 @@ public class Tab1Fragment extends Fragment {
         editColor = (EditText) view.findViewById(R.id.editText2);
         button2 =(Button) view.findViewById(R.id.button2);
         Spinner spinner = (Spinner)view.findViewById(R.id.spinner);
+
+        fm = getFragmentManager();
 
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -98,7 +105,18 @@ public class Tab1Fragment extends Fragment {
 //                ft.replace(R.id.content_frame, fragment);
 //                ft.commit();
 
+
+
                 boolean isInserted = myDb.insertData(editName.getText().toString(),editCode.getText().toString(),null);
+                FragmentManager fm = getFragmentManager();
+                //listTabView is a fragment
+                ListTabView listTabView = new ListTabView();
+
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fm.beginTransaction().replace(R.id.tab1_frag,listTabView);
+
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
                 if(isInserted==true){
                     Toast.makeText(getContext(),"Data Inserted",Toast.LENGTH_LONG).show();
@@ -106,6 +124,8 @@ public class Tab1Fragment extends Fragment {
                 else{
                     Toast.makeText(getContext(),"Data not Inserted",Toast.LENGTH_LONG).show();
                 }
+
+
             }
         });
 

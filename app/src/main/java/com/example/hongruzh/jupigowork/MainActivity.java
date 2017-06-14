@@ -1,6 +1,7 @@
 package com.example.hongruzh.jupigowork;
 
 import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -32,6 +33,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.hongruzh.jupigowork.Tab.ListTabView;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -46,13 +49,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Create the database
         myDb = new DataBaseHelper(this);
-
+        //Create the fragment Manager
         Log.d(TAG, "onCreate: Starting.");
-
-
         fragment2 = new Tab2Fragment();
+
+
+
 
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
@@ -60,15 +64,22 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(mViewPager);
-
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-//        ActionBar actionBar = getActionBar();
-//        actionBar.hide();
+
+//                FragmentManager fm = getSupportFragmentManager();
+//                //listTabView is a fragment
+//                ListTabView listTabView = new ListTabView();
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                fm.beginTransaction().replace(R.id.tab1_frag,listTabView);
+//
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+
+
 
 
     }
-
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
         adapter.addFragment(new Tab1Fragment(), "TAB1");
