@@ -76,76 +76,81 @@ public class Tab1Fragment extends Fragment {
 
     public void addData(){
         //button2 is submit button
-
-        button2.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
-//                Fragment tab_fragment2 = new Tab2Fragment();
-//                Bundle bundle = new Bundle();
-//                FragmentTransaction transection = getFragmentManager().beginTransaction();
-//                bundle.putString("Name", editName.getText().toString());
-//                bundle.putString("Code",editCode.getText().toString());
-//                bundle.putString("Color","green");
-//                tab_fragment2.setArguments(bundle);
 //
-//                transection.replace(R.id.tab1_frag, tab_fragment2);
-//                transection.isAddToBackStackAllowed();
-//                transection.addToBackStack(null);
-//                transection.commit();
-
-//                Intent intent = new Intent();
-//                intent.putExtra("Name",editName.getText().toString());
-//                intent.putExtra("Code",editCode.getText().toString());
-//                intent.putExtra("Color","green");
-//                //send the data from Tab1 to Tab2
-//                intent.setClass(mContext,Tab2Fragment.class);
-//                startActivity(intent);
-
-//                                Fragment fragment = new Tab2Fragment();
-//                FragmentManager fm = getActivity().getSupportFragmentManager();
-//                FragmentTransaction ft = fm.beginTransaction();
-//                ft.replace(R.id.content_frame, fragment);
-//                ft.commit();
-
-
-
-                boolean isInserted = myDb.insertData(editName.getText().toString(),editCode.getText().toString(),null);
-                FragmentManager fm = getFragmentManager();
-                //listTabView is a fragment
-                Fragment listTabView = new ListTabView();
-
-                FragmentTransaction fragmentTransaction = fm.beginTransaction();
-                System.out.println(fm.getFragments().size()+"get the size");
-//                if (fm.getFragments() != null && fm.getFragments().size() > 0) {
-//                    for (Fragment cf : fm.getFragments()) {
-//                        fragmentTransaction.re567890move(cf);
-//                    }
-//                }456789
-//                try{
-//                    fragmentTransaction.hide(fm.findFragmentById(R.id.tab1_frag));
+//        button2.setOnClickListener(new View.OnClickListener(){
+//
+//            public void onClick(View v){
+////                Fragment tab_fragment2 = new Tab2Fragment();
+////                Bundle bundle = new Bundle();
+////                FragmentTransaction transection = getFragmentManager().beginTransaction();
+////                bundle.putString("Name", editName.getText().toString());
+////                bundle.putString("Code",editCode.getText().toString());
+////                bundle.putString("Color","green");
+////                tab_fragment2.setArguments(bundle);
+////
+////                transection.replace(R.id.tab1_frag, tab_fragment2);
+////                transection.isAddToBackStackAllowed();
+////                transection.addToBackStack(null);
+////                transection.commit();
+//
+////                Intent intent = new Intent();
+////                intent.putExtra("Name",editName.getText().toString());
+////                intent.putExtra("Code",editCode.getText().toString());
+////                intent.putExtra("Color","green");
+////                //send the data from Tab1 to Tab2
+////                intent.setClass(mContext,Tab2Fragment.class);
+////                startActivity(intent);
+//
+////                                Fragment fragment = new Tab2Fragment();
+////                FragmentManager fm = getActivity().getSupportFragmentManager();
+////                FragmentTransaction ft = fm.beginTransaction();
+////                ft.replace(R.id.content_frame, fragment);
+////                ft.commit();
+//
+//
+//
+//                boolean isInserted = myDb.insertData(editName.getText().toString(),editCode.getText().toString(),null);
+//                FragmentManager fm = getFragmentManager();
+//                //listTabView is a fragment
+//                Fragment listTabView = new ListTabView();
+//
+//                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+////                System.out.println(fm.getFragments().size()+"get the size");
+////                if (fm.getFragments() != null && fm.getFragments().size() > 0) {
+////                    for (Fragment cf : fm.getFragments()) {
+////                        fragmentTransaction.re567890move(cf);
+////                    }
+////                }456789
+////                try{
+////                    fragmentTransaction.hide(fm.findFragmentById(R.id.tab1_frag));
+////                }
+////                catch(Exception e){
+////                    e.printStackTrace();3456789
+////                }
+//
+////                fragmentTransaction.replace(R.id.container, listTabView);
+//
+//
+//
+//
+////                fragmentTransaction.addToBackStack(null);
+////                fragmentTransaction.add(R.id.container, listTabView);
+////                fragmentTransaction.add(R.id.container, listTabView).commit();
+////                fm.beginTransaction().show(listTabView);
+////                fragmentTransaction.commit();
+////                fm.beginTransaction().show(listTabView).commit();
+////                fragmentTransaction.add(R.id.container, listTabView).commit();
+////                fragmentTransaction.hide();
+//                if(isInserted==true){
+//                    Toast.makeText(getContext(),"Data Inserted",Toast.LENGTH_LONG).show();
 //                }
-//                catch(Exception e){
-//                    e.printStackTrace();3456789
+//                else{
+//                    Toast.makeText(getContext(),"Data not Inserted",Toast.LENGTH_LONG).show();
 //                }
-
-                fragmentTransaction.add(R.id.main_content, listTabView);
-
-
-
-
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
-                if(isInserted==true){
-                    Toast.makeText(getContext(),"Data Inserted",Toast.LENGTH_LONG).show();
-                }
-                else{
-                    Toast.makeText(getContext(),"Data not Inserted",Toast.LENGTH_LONG).show();
-                }
-
-
-            }
-        });
+//
+//
+//            }
+//        });
     }
 
 

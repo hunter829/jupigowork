@@ -3,7 +3,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tab1_frag">
+    android:id="@+id/tab1_frag"
+    android:background = "#5d5d5d">
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +45,8 @@
         android:id="@+id/button2"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="68dp" />
+        android:layout_marginBottom="68dp"
+        android:onClick="tab1OnClickListener"/>
 
     <Spinner
         android:layout_width="wrap_content"

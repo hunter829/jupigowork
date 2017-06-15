@@ -41,7 +41,6 @@ public class Tab2Fragment extends Fragment {
         items.add(new MyTabItem("SUB  TAB  ONE", Fragment1A.class));
         items.add(new MyTabItem("SUB  TAB  TWO", Fragment1B.class));
         items.add(new MyTabItem("SUB  TAB  THREE", Fragment1B.class));
-        items.add(new MyTabItem("SUB  TAB  FOUR", Fragment1B.class));
     }
 
     @Nullable

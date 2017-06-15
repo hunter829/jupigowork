@@ -4,7 +4,8 @@
     xmlns:andorid="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background = "#5d5d5d">
 
     <com.example.hongruzh.jupigowork.extra.SlidingTabLayout
         android:id="@+id/f1slidingTabLayout"
