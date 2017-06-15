@@ -4,7 +4,11 @@
     tools:context="com.example.charles.subslidingtabs.fragments.Fragment1A">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="Fragment 1 A" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Fragment 1 A"
+        android:gravity="center"
+        android:includeFontPadding="false"/>
 
 </FrameLayout>

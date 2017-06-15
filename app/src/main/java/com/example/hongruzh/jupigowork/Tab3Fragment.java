@@ -45,14 +45,14 @@ public class Tab3Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.tab3_fragment, container, false);
-        btnTEST = (Button) view.findViewById(R.id.btnTEST3);
-
-        btnTEST.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "TESTING BUTTON CLICK 3", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        btnTEST = (Button) view.findViewById(R.id.btnTEST3);
+//
+//        btnTEST.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getActivity(), "TESTING BUTTON CLICK 3", Toast.LENGTH_SHORT).show();
+//            }
+//        });
         myDb = new DataBaseHelper(getContext());
 
         //get all the data from the database;
@@ -66,11 +66,13 @@ public class Tab3Fragment extends Fragment {
         List<DataWrapper> list = new ArrayList<DataWrapper>();
 
         while(res.moveToNext()){
-            list.add(new DataWrapper(res.getString(0),res.getString(1),res.getString(2),res.getString(3)));
+            //insert id Name COlOR and CODE
+            list.add(new DataWrapper(res.getString(0),res.getString(2),res.getString(3),res.getString(1)));
+//            System.out.println("res.getString(1)"+res.getString(1));
 //            .append("Id :" + res.getString(0) + "\n");
-//            buffer.append("Name :"+ res.getString(1)+"\n");
-//            buffer.append("Color :"+ res.getString(2)+"\n");
-//            buffer.append("Code :"+ res.getString(3)+"\n\n");
+//            buffer.append("Code :"+ res.getString(1)+"\n");
+//            buffer.append("NAME :"+ res.getString(2)+"\n");
+//            buffer.append("Color :"+ res.getString(3)+"\n\n");
         }
         mContext = getContext();
         exlist_lol = (ExpandableListView) view.findViewById(R.id.expandableListView);
@@ -81,10 +83,10 @@ public class Tab3Fragment extends Fragment {
 
 
         for(DataWrapper daWr:list){
+//            System.out.println("daWrname"+ daWr.NAME);
             gData.add(new Group(daWr.NAME));
             lData = new ArrayList<Item>();
-            lData.add(new Item(daWr.COLOR));
-            lData.add(new Item(daWr.CODE));
+            lData.add(new Item(Integer.parseInt(daWr.CODE),"TEST COLOR"));
             iData.add(lData);
         }
 
@@ -96,7 +98,7 @@ public class Tab3Fragment extends Fragment {
         exlist_lol.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(mContext, "你点击了：" + iData.get(groupPosition).get(childPosition).getiName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "You Clicked：" + iData.get(groupPosition).get(childPosition).getColor(), Toast.LENGTH_SHORT).show();
                 return true;
             }
         });

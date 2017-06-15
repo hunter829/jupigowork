@@ -70,13 +70,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void tab1OnClickListener(View view) {
-        ListTabView listFragment = new ListTabView();
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.tab1_frag, listFragment).commit();
-        fragmentManager.beginTransaction().addToBackStack(null);
-
-    }
+//    public void tab1OnClickListener(View view) {
+//        boolean isInserted = myDb.insertData(editName.getText().toString(),
+//        ListTabView listFragment = new ListTabView();
+//        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.tab1_frag, listFragment).commit();
+//        fragmentManager.beginTransaction().addToBackStack(null);
+//
+//    }
 
 
 

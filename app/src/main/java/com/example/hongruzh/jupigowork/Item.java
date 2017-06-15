@@ -5,29 +5,32 @@ package com.example.hongruzh.jupigowork;
  */
 public class Item {
 
-    private int iId;
-    private String iName;
+    private int code;
+    private String color;
+
 
     public Item() {
     }
 
-    public Item(String iName) {
-        this.iName = iName;
+    public Item(int code,String color) {
+
+        this.color = color;
+        this.code = code;
     }
 
-    public int getiId() {
-        return iId;
+    public int getCode() {
+        return code;
     }
 
-    public String getiName() {
-        return iName;
+    public String getColor() {
+        return color;
     }
 
     public void setiId(int iId) {
-        this.iId = iId;
+        this.code = code;
     }
 
-    public void setiName(String iName) {
-        this.iName = iName;
+    public void setColor(String Color) {
+        this.color = Color;
     }
 }
