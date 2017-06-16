@@ -10,8 +10,8 @@
     <com.example.hongruzh.jupigowork.extra.SlidingTabLayout
         android:id="@+id/f1slidingTabLayout"
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_weight="1"
+        android:layout_height="50dp"
+
         android:scrollX="@dimen/activity_horizontal_margin"
         android:background="#5d5d5d"
         >
@@ -21,10 +21,10 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/f1viewPager"
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:layout_above="@+id/f1slidingTabLayout"
-        android:background="#FF0000"/>
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/f1slidingTabLayout"
+        />
 
 
 </RelativeLayout>

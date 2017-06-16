@@ -5,20 +5,20 @@ package com.example.hongruzh.jupigowork;
  */
 public class Item {
 
-    private int code;
+    private String code;
     private String color;
 
 
     public Item() {
     }
 
-    public Item(int code,String color) {
+    public Item(String code,String color) {
 
         this.color = color;
         this.code = code;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 

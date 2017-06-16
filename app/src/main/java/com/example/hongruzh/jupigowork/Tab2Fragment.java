@@ -15,6 +15,7 @@ import com.example.hongruzh.jupigowork.bean.MyTabItem;
 import com.example.hongruzh.jupigowork.extra.SlidingTabLayout;
 import com.example.hongruzh.jupigowork.fragments.Fragment1A;
 import com.example.hongruzh.jupigowork.fragments.Fragment1B;
+import com.example.hongruzh.jupigowork.fragments.Fragment1C;
 
 import java.util.ArrayList;
 
@@ -40,7 +41,7 @@ public class Tab2Fragment extends Fragment {
         items = new ArrayList<>();
         items.add(new MyTabItem("SUB  TAB  ONE", Fragment1A.class));
         items.add(new MyTabItem("SUB  TAB  TWO", Fragment1B.class));
-        items.add(new MyTabItem("SUB  TAB  THREE", Fragment1B.class));
+        items.add(new MyTabItem("SUB  TAB  THREE", Fragment1C.class));
     }
 
     @Nullable

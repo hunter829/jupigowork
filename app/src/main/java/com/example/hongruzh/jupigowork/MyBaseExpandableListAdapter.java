@@ -97,6 +97,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         }
 //        itemHolder.img_icon.setImageResource(iData.get(groupPosition).get(childPosition).getiId());
         itemHolder.tv_name.setText(iData.get(groupPosition).get(childPosition).getColor());
+        itemHolder.tv_first.setText(iData.get(groupPosition).get(childPosition).getCode());
         System.out.println("iData.get(groupPosition).get(childPosition).getColor()"+iData.get(groupPosition).get(childPosition).getColor());
         return convertView;
     }

@@ -2,6 +2,7 @@ package com.example.hongruzh.jupigowork;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -74,11 +75,16 @@ public class Tab1Fragment extends Fragment {
         return view;
     }
 
-    public void addData(){
-        //button2 is submit button
-        button2.setOnClickListener(new View.OnClickListener(){
 
-            public void onClick(View v){
+
+    public void addData() {
+        //button2 is submit button
+
+
+
+            button2.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View v) {
 ////                Fragment tab_fragment2 = new Tab2Fragment();
 ////                Bundle bundle = new Bundle();
 ////                FragmentTransaction transection = getFragmentManager().beginTransaction();
@@ -108,25 +114,27 @@ public class Tab1Fragment extends Fragment {
 //
 //
 //
-        boolean isInserted = myDb.insertData(editName.getText().toString(), editCode.getText().toString(), null);
-        FragmentManager fm = getFragmentManager();
-        Fragment listTabView = new ListTabView();
-        if(isInserted==true){
-            Toast.makeText(getContext(),"Data Inserted",Toast.LENGTH_LONG).show();
+                    if ((!editName.getText().toString().equals("")) && (!editColor.getText().toString().equals("")) && (!editCode.getText().toString().equals(""))) {
+                        button2.setBackgroundColor(Color.BLACK);
+                        boolean isInserted = myDb.insertData(editName.getText().toString(), editCode.getText().toString(), null);
+
+                        if (isInserted == true) {
+                            Toast.makeText(getContext(), "Data Inserted", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(getContext(), "Data not Inserted", Toast.LENGTH_LONG).show();
+                        }
+                        FragmentManager fm = getFragmentManager();
+//                Fragment listTabView = new ListTabView();
+                        ListTabView listFragment = new ListTabView();
+                        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                        android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.tab1_frag, new ListTabView()).commit();
+                    }
+                    else{
+                        Toast.makeText(getContext(), "Please Fill The Blank", Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
-        else{
-            Toast.makeText(getContext(),"Data not Inserted",Toast.LENGTH_LONG).show();
-        }
-
-
-        ListTabView listFragment = new ListTabView();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();android.support.v4.app.FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.tab1_frag, listFragment).commit();
-        fragmentManager.beginTransaction().addToBackStack(null);
-
-            }
-        });
     }
 
-
-}

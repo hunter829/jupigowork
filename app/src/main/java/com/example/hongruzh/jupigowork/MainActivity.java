@@ -14,6 +14,11 @@ import android.util.Log;
 
 
 import com.example.hongruzh.jupigowork.Tab.ListTabView;
+import com.wx.wheelview.adapter.ArrayWheelAdapter;
+import com.wx.wheelview.widget.WheelView;
+
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         setupViewPager(mViewPager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+         // 数据集合
+
 //        mViewPager.addView(listTabView.getView());
 
 //                FragmentManager fm = getSupportFragmentManager();
@@ -69,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
     }
+
 
 //    public void tab1OnClickListener(View view) {
 //        boolean isInserted = myDb.insertData(editName.getText().toString(),
