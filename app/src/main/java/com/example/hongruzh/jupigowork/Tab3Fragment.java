@@ -86,7 +86,7 @@ public class Tab3Fragment extends Fragment {
 //            System.out.println("daWrname"+ daWr.NAME);
             gData.add(new Group(daWr.NAME));
             lData = new ArrayList<Item>();
-            lData.add(new Item(daWr.CODE,"TEST COLOR"));
+            lData.add(new Item(daWr.CODE,daWr.COLOR));
             iData.add(lData);
         }
 

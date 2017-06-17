@@ -110,9 +110,6 @@ public class ListTabView extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast t = Toast.makeText(getActivity(), "还不出来啊456789"+((TextView) view).getText(),
-                        Toast.LENGTH_SHORT);
-                t.show();
                 String name = ((TextView) view).getText().toString();
                 SingleView singleFragment = new SingleView();
                 Bundle bundle = new Bundle();

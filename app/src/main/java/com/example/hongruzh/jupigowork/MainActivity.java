@@ -1,8 +1,11 @@
 package com.example.hongruzh.jupigowork;
 
 
+import android.app.FragmentManager;
 import android.support.design.widget.TabLayout;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.view.ViewPager;
@@ -11,20 +14,27 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.util.Log;
+import android.widget.Toast;
 
 
 import com.example.hongruzh.jupigowork.Tab.ListTabView;
+import com.example.hongruzh.jupigowork.fragments.WheelFragment;
 import com.wx.wheelview.adapter.ArrayWheelAdapter;
 import com.wx.wheelview.widget.WheelView;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+import static com.example.hongruzh.jupigowork.R.id.tab1_frag;
+import static java.security.AccessController.getContext;
+
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
     private SectionsPageAdapter mSectionsPageAdapter;
+
 
     private Tab2Fragment fragment2;
 
@@ -79,14 +89,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    public void tab1OnClickListener(View view) {
-//        boolean isInserted = myDb.insertData(editName.getText().toString(),
-//        ListTabView listFragment = new ListTabView();
-//        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
-//        fragmentManager.beginTransaction().replace(R.id.tab1_frag, listFragment).commit();
-//        fragmentManager.beginTransaction().addToBackStack(null);
-//
-//    }
+    public void tab1OnClickListener(View view) {
+
+        ListTabView listFragment = new ListTabView();
+        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+//        ft.add(tab1_frag, new Tab1Fragment());
+        ft.replace(tab1_frag, listFragment).commit();
+        fragmentManager.beginTransaction().addToBackStack(null);
+
+
+    }
+
+    public void SelectOnClickListener(View view){
+
+         Toast.makeText(getApplicationContext(), "Test Wheel view", Toast.LENGTH_LONG).show();
+         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+         FragmentTransaction ft = fm.beginTransaction();
+         ft.replace(tab1_frag,new WheelFragment());
+         ft.addToBackStack(null).commit();
+    }
+
+
 
 
 

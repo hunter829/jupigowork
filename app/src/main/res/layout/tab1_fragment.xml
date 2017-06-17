@@ -23,22 +23,21 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_below="@+id/spinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="27dp"
         android:maxLength="4"
-        />
+        android:layout_below="@+id/testBt"
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText2"
         android:layout_below="@+id/editText"
-        android:layout_marginTop="101dp"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
         android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignStart="@+id/editText"
+        android:layout_marginTop="70dp"
+        android:layout_alignRight="@+id/editText"
+        android:layout_alignEnd="@+id/editText" />
 
     <Button
         android:layout_width="120sp"
@@ -48,18 +47,21 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="68dp"
-        android:onClick="tab1OnClickListener"/>
+        android:onClick="tab1OnClickListener"
+       />
 
-    <Spinner
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:entries="@array/colors"
+        android:id="@+id/testBt"
+        android:text="Select Color"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/textTab1"
         android:layout_alignLeft="@+id/button2"
         android:layout_alignStart="@+id/button2"
-        android:layout_marginTop="42dp"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:onClick="SelectOnClickListener"
+      />
+
+
 
 </RelativeLayout>

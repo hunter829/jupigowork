@@ -26,7 +26,7 @@ public class MyWheelAdpter extends BaseWheelAdapter<String> {
         ViewHolder viewHolder;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.pick_ui, null);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.color_list, null);
             viewHolder.textView = (TextView) convertView.findViewById(R.id.item_name);
             convertView.setTag(viewHolder);
         } else {
