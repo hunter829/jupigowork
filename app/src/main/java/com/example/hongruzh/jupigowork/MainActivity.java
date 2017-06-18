@@ -1,10 +1,8 @@
 package com.example.hongruzh.jupigowork;
 
 
-import android.app.FragmentManager;
 import android.support.design.widget.TabLayout;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
@@ -14,43 +12,33 @@ import android.os.Bundle;
 import android.view.View;
 
 import android.util.Log;
-import android.widget.Toast;
 
 
-import com.example.hongruzh.jupigowork.Tab.ListTabView;
-import com.example.hongruzh.jupigowork.fragments.WheelFragment;
-import com.wx.wheelview.adapter.ArrayWheelAdapter;
-import com.wx.wheelview.widget.WheelView;
-
-import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
+import com.example.hongruzh.jupigowork.listTab.ListTabView;
+import com.example.hongruzh.jupigowork.adpter.SectionsPageAdapter;
 
 import static com.example.hongruzh.jupigowork.R.id.tab1_frag;
-import static java.security.AccessController.getContext;
+import static com.example.hongruzh.jupigowork.R.id.tab_container;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
     private SectionsPageAdapter mSectionsPageAdapter;
-
-
+    private static TabLayout mTablayout;
     private Tab2Fragment fragment2;
-
     private ViewPager mViewPager;
     DataBaseHelper myDb;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Create the database
         myDb = new DataBaseHelper(this);
+
         //Create the fragment Manager
         Log.d(TAG, "onCreate: Starting.");
         fragment2 = new Tab2Fragment();
-
-
-
 
 
         mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
@@ -58,23 +46,9 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         ListTabView listTabView = new ListTabView();
-//        rtyui
         setupViewPager(mViewPager);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-
-         // 数据集合
-
-//        mViewPager.addView(listTabView.getView());
-
-//                FragmentManager fm = getSupportFragmentManager();
-//                //listTabView is a fragment
-//                ListTabView listTabView = new ListTabView();
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fm.beginTransaction().replace(R.id.tab1_frag,listTabView);
-//
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit()
+        mTablayout = (TabLayout) findViewById(R.id.tabs);
+        mTablayout.setupWithViewPager(mViewPager);
 
     }
     private void setupViewPager(ViewPager viewPager) {
@@ -82,36 +56,26 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new Tab1Fragment(), "TAB1");
         adapter.addFragment(new Tab2Fragment(), "TAB2");
         adapter.addFragment(new Tab3Fragment(), "TAB3");
-
-
         viewPager.setAdapter(adapter);
 
     }
 
+    public static void toggleTabBar() {
+        if (mTablayout.getVisibility() == View.GONE) {
+            mTablayout.setVisibility(View.VISIBLE);
+        } else {
+            mTablayout.setVisibility(View.GONE);
+        }
+    }
+
 
     public void tab1OnClickListener(View view) {
-
+        //click submit button get all of the list data
         ListTabView listFragment = new ListTabView();
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-//        ft.add(tab1_frag, new Tab1Fragment());
-        ft.replace(tab1_frag, listFragment).commit();
+        ft.add(tab_container, listFragment).commit();
         fragmentManager.beginTransaction().addToBackStack(null);
-
-
     }
-
-    public void SelectOnClickListener(View view){
-
-         Toast.makeText(getApplicationContext(), "Test Wheel view", Toast.LENGTH_LONG).show();
-         android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
-         FragmentTransaction ft = fm.beginTransaction();
-         ft.replace(tab1_frag,new WheelFragment());
-         ft.addToBackStack(null).commit();
-    }
-
-
-
-
 
 }

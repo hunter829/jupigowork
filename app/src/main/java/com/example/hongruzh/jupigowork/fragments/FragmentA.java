@@ -8,24 +8,24 @@ import android.view.ViewGroup;
 
 import com.example.hongruzh.jupigowork.R;
 
-public class Fragment1B extends Fragment {
 
-    public Fragment1B() {
-        // Required empty public constructor
+public class FragmentA extends Fragment {
+
+    public FragmentA() {
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment1_b, container, false);
+        return inflater.inflate(R.layout.fragment_first, container, false);
     }
-
-
 
 }

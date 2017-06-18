@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tab1_frag"
-    android:background = "#5d5d5d">
+    android:id="@+id/tab_container">
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tab1_frag"
+        android:background = "#5d5d5d">
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,10 +30,12 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_marginTop="27dp"
+        android:hint = "Enter 4 Digit Code"
         android:maxLength="4"
+        android:onClick="onClickCodeView"
         android:layout_below="@+id/testBt"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,33 +44,35 @@
         android:layout_below="@+id/editText"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="72dp"
+        android:hint = "Enter a Name"
         android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignEnd="@+id/editText"
+        android:onClick="onClickNameView"/>
 
     <Button
         android:layout_width="120sp"
         android:layout_height="50sp"
         android:text=" Submit"
-        android:id="@+id/button2"
+        android:id="@+id/submitBtn"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="68dp"
         android:onClick="tab1OnClickListener"
-       />
+        android:visibility="invisible"
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/testBt"
         android:text="Select Color"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/textTab1"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
+        android:layout_marginTop="26dp"
         android:onClick="SelectOnClickListener"
-      />
+        android:visibility="invisible"
+        android:layout_below="@+id/textTab1"
+        android:layout_centerHorizontal="true" />
 
 
-
+   </RelativeLayout>
 </RelativeLayout>

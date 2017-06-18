@@ -1,25 +1,25 @@
-package com.example.hongruzh.jupigowork;
+package com.example.hongruzh.jupigowork.adpter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.hongruzh.jupigowork.bean.DataWrapper;
+import com.example.hongruzh.jupigowork.bean.Group;
+import com.example.hongruzh.jupigowork.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Jay on 2015/9/25 0025.
- */
 public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<Group> gData;
-    private ArrayList<ArrayList<Item>> iData;
+    private ArrayList<ArrayList<DataWrapper.Item>> iData;
     private Context mContext;
 
-    public MyBaseExpandableListAdapter(ArrayList<Group> gData, ArrayList<ArrayList<Item>> iData, Context mContext) {
+    public MyBaseExpandableListAdapter(ArrayList<Group> gData, ArrayList<ArrayList<DataWrapper.Item>> iData, Context mContext) {
         this.gData = gData;
         this.iData = iData;
         this.mContext = mContext;
@@ -41,7 +41,7 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public Item getChild(int groupPosition, int childPosition) {
+    public DataWrapper.Item getChild(int groupPosition, int childPosition) {
         return iData.get(groupPosition).get(childPosition);
     }
 
@@ -118,5 +118,4 @@ public class MyBaseExpandableListAdapter extends BaseExpandableListAdapter {
         private TextView tv_first;
 
     }
-
 }

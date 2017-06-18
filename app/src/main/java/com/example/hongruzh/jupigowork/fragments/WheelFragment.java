@@ -1,5 +1,6 @@
 package com.example.hongruzh.jupigowork.fragments;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -34,26 +35,22 @@ public class WheelFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
         View view = inflater.inflate(R.layout.wheel_view, container, false);
 
-        Log.i("WheelFragment.onCreate", "进入onCreate");
+//        Log.i("WheelFragment.onCreate", "enter onCreate");
         myWheelView = (WheelView) view.findViewById(R.id.my_wheelview);
         myWheelView.setWheelAdapter(new MyWheelAdpter(getActivity()));
         myWheelView.setWheelSize(5);
-        myWheelView.setSkin(WheelView.Skin.Holo);
         myWheelView.setWheelData(createArrays());
         myWheelView.setSelection(2);
         WheelView.WheelViewStyle style = new WheelView.WheelViewStyle();
-//        style.backgroundColor = Color.YELLOW;
-//        style.textColor = Color.DKGRAY;
-        style.selectedTextColor = Color.GREEN;
+        style.selectedTextColor = Color.RED;
         myWheelView.setStyle(style);
-        myWheelView.setWheelClickable(true);
+        myWheelView.setWheelClickable(false);
 
         button = (Button)view.findViewById(R.id.button);
-//        color = (String)myWheelView.getSelectionItem();
-//        System.out.println("this is test"+((MyApplication) getActivity().getApplication()).getSomeVariable());
-//////                System.out.println("Color" + color);
+        button.setVisibility(View.VISIBLE);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,21 +59,18 @@ public class WheelFragment extends Fragment {
                 color = (String)myWheelView.getSelectionItem();
                 ((MyApplication) getActivity().getApplication()).setSomeVariable(color);
                 System.out.println("this is test"+((MyApplication) getActivity().getApplication()).getSomeVariable());
-
+                Tab1Fragment tab1Fragment = new Tab1Fragment();
                 FragmentManager fm = getFragmentManager();
-
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.hide(WheelFragment.this);
-//                fm.findFragmentById(R.id.tab1_frag).
                 Tab1Fragment.setButtonText(color);
                 ft.addToBackStack("hide fragment3").commit();
+                Tab1Fragment.toggleSubmitButtonVisibilty();
             }
         });
 
-        // Inflate the layout for this fragment
         return view;
     }
-
 
     private ArrayList<String> createArrays() {
         ArrayList<String> list = new ArrayList<String>();
@@ -89,22 +83,4 @@ public class WheelFragment extends Fragment {
         return list;
     }
 
-//    @Override
-//    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//
-//        try{
-//            myWheelView.setOnWheelItemClickListener(new WheelView.OnWheelItemClickListener() {
-//                @Override
-//                public void onItemClick(int position, Object o) {
-//                    color = (String) myWheelView.getSelectionItem();
-//                    System.out.println(color);
-//                }
-//            });
-//        }
-//        catch(Exception e){
-//            e.printStackTrace();
-//        }
-//    }
 }

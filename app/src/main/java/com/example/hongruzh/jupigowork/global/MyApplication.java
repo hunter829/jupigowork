@@ -8,6 +8,7 @@ import android.app.Application;
 
 public class MyApplication extends Application {
 
+    //gloabl variable for the select color string
     private String someVariable;
 
     public String getSomeVariable() {

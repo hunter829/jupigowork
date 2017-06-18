@@ -30,11 +30,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + "(ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,COLOR TEXT,CODE TEXT)");
     }
-
     public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion){
+
         db.execSQL("DROP TABLE IF EXISTS"+TABLE_NAME);
         onCreate(db);
     }
+
 
     public boolean insertData(String name,String color,String code){
         SQLiteDatabase db = this.getWritableDatabase();

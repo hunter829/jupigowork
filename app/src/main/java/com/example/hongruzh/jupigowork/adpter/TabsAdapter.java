@@ -1,4 +1,4 @@
-package com.example.hongruzh.jupigowork;
+package com.example.hongruzh.jupigowork.adpter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -9,9 +9,6 @@ import com.example.hongruzh.jupigowork.bean.MyTabItem;
 
 import java.util.ArrayList;
 
-/**
- * Created by charles on 14/09/15.
- */
 public class TabsAdapter
     extends FragmentPagerAdapter {
 

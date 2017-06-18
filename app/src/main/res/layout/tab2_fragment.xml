@@ -9,7 +9,7 @@
 
     <com.example.hongruzh.jupigowork.extra.SlidingTabLayout
         android:id="@+id/f1slidingTabLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
 
         android:scrollX="@dimen/activity_horizontal_margin"

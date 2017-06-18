@@ -1,8 +1,6 @@
-package com.example.hongruzh.jupigowork;
+package com.example.hongruzh.jupigowork.bean;
 
-/**
- * Created by Jay on 2015/9/25 0025.
- */
+
 public class Group {
     private String gName;
 

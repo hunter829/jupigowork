@@ -1,4 +1,4 @@
-package com.example.hongruzh.jupigowork;
+package com.example.hongruzh.jupigowork.adpter;
 
 
 import android.support.v4.app.Fragment;

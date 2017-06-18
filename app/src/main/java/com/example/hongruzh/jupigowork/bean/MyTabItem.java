@@ -2,9 +2,7 @@ package com.example.hongruzh.jupigowork.bean;
 
 import android.support.v4.app.Fragment;
 
-/**
- * Created by charles on 14/09/15.
- */
+
 public class MyTabItem {
     private String title;
     private Class fragmentClass;

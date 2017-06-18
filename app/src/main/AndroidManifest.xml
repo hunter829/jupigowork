@@ -24,6 +24,13 @@
         </activity>
     </application>
 
+    <supports-screens android:largeScreens="true" />
+    <supports-screens android:smallScreens="true" />
+    <supports-screens android:normalScreens="true"/>
+
+
+
+
 
 
 </manifest>
